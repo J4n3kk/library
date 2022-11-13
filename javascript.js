@@ -91,6 +91,7 @@ function displayClear() {
 
 const form = document.createElement('form')
 form.classList.add('form')
+form.style.visibility = 'hidden';
 
 // Input creation
 
@@ -139,6 +140,7 @@ btn.addEventListener('click', function (event) {
     if (validation() == false) {
         return
     }
+    form.style.visibility = 'hidden'
     bookCreation();
     displayClear();
     displayBooks(myLibrary)
@@ -179,6 +181,13 @@ function validation() {
 
 // creation of remove buttons
 
-
+const addBtn = document.createElement('button')
+addBtn.textContent = 'Add book';
+addBtn.classList.add('add-btn')
+addBtn.addEventListener('click', function(event){
+    event.preventDefault();
+    form.style.visibility = 'visible'
+})
+util.appendChild(addBtn)
 
 displayBooks(myLibrary)
