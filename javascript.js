@@ -126,6 +126,17 @@ Object.assign(readInput, {
     id: 'read',
 })
 
+// input clearance 
+
+function clearInput(){
+    const inputs = document.querySelectorAll('input')
+    for (let i = 0; i < inputs.length; i++) {
+        inputs[i].value = ''        
+    }
+    inputs[3].checked = false;
+}
+
+
 // Label creation for readInput
 const readInputLabel = document.createElement('label');
 readInputLabel.setAttribute('for', 'read')
@@ -143,7 +154,8 @@ btn.addEventListener('click', function (event) {
     form.style.visibility = 'hidden'
     bookCreation();
     displayClear();
-    displayBooks(myLibrary)
+    clearInput();
+    displayBooks(myLibrary);
 })
 
 form.appendChild(titleInput);
@@ -188,6 +200,6 @@ addBtn.addEventListener('click', function(event){
     event.preventDefault();
     form.style.visibility = 'visible'
 })
-util.appendChild(addBtn)
+main.appendChild(addBtn)
 
 displayBooks(myLibrary)
