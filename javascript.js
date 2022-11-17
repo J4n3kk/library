@@ -1,25 +1,42 @@
 let myLibrary = [];
 
-function Book(title, author, pages, read) {
+/* function Book(title, author, pages, read) {
     // constructor
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.read = read ? 'read' : 'not read';
 }
+ */
+
+class Book {
+    constructor(title, author, pages, read){
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read ? 'read' : 'not read';
+
+    }
+    addBookToLibrary(){
+        myLibrary.push(this);
+        console.log('book has been added to the shelf');
+    }
+}
+
+
 
 const book1 = new Book('Lord of the Rings', 'J. R. Tolkien', '823', true);
 const book2 = new Book('Zwiadowcy', 'J. Flanagan', '234', true);
 const book3 = new Book('Zwiadowcy II', 'J. Flanagan', '224', false);
 
-function addBookToLibrary(book) {
+/* function addBookToLibrary(book) {
     myLibrary.push(book);
     console.log('book has been added to the shelf');
-}
+} */
 
-addBookToLibrary(book1);
-addBookToLibrary(book2);
-addBookToLibrary(book3);
+book1.addBookToLibrary();
+book2.addBookToLibrary();
+book3.addBookToLibrary();
 
 // Page display
 
@@ -179,7 +196,7 @@ function bookCreation() {
         bookAttributes.push(inputs[i].value)
     }
     const newBook = new Book(bookAttributes[0], bookAttributes[1], bookAttributes[2], bookAttributes[3])
-    addBookToLibrary(newBook)
+    newBook.addBookToLibrary()
 }
 
 function validation() {
